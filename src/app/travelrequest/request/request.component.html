@@ -1,0 +1,158 @@
+<form name="requestform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    <!--request id-->
+    <input type="hidden" name="RequestId" [ngModel]="requestService.formData.EmpId" />
+
+    <!--cause of travel-->
+    <div class="form-group">
+
+        <label>Travel cause</label>
+        <input type="text" name="CauseTravel" #CauseTravel="ngModel" [ngModel]="requestService.formData.CauseTravel"
+            class="form-control" placeholder="Enter tarvel cause" minlength="5" maxlength="25" required
+            [ngClass]="{'is-invalid':CauseTravel.touched && CauseTravel.invalid}" />
+        <div class="validation-error" *ngIf="CauseTravel.touched && CauseTravel.invalid">
+
+            <div *ngIf="CauseTravel.errors.required">
+                Travel cause  is required</div>
+        </div>
+    </div>
+    <!--Source-->
+    <div class="form-group">
+
+        <label>Source</label>
+        <input type="text" name="Source" #Source="ngModel" [ngModel]="requestService.formData.Source"
+            class="form-control" placeholder="Enter source" minlength="5" maxlength="25" required
+            [ngClass]="{'is-invalid':Source.touched && Source.invalid}" />
+        <div class="validation-error" *ngIf="Source.touched && Source.invalid">
+
+            <div *ngIf="Source.errors.required">
+              Source is required</div>
+        </div>
+    </div>
+     <!--Destination-->
+     <div class="form-group">
+
+        <label>Destination</label>
+        <input type="text" name="Destination" #Destination="ngModel" [ngModel]="requestService.formData.Destination"
+            class="form-control" placeholder="Enter Destination" minlength="5" maxlength="25" required
+            [ngClass]="{'is-invalid':Destination.touched && Destination.invalid}" />
+        <div class="validation-error" *ngIf="Destination.touched && Destination.invalid">
+
+            <div *ngIf="Destination.errors.required">
+                Destination is required</div>
+        </div>
+    </div>
+
+     <!--Mode-->
+     <div class="form-group">
+
+        <label>Mode</label>
+        <input type="text" name="Mode" #Mode="ngModel" [ngModel]="requestService.formData.Mode"
+            class="form-control" placeholder="Enter Mode" minlength="5" maxlength="25" required
+            [ngClass]="{'is-invalid':Mode.touched && Mode.invalid}" />
+        <div class="validation-error" *ngIf="Mode.touched && Mode.invalid">
+
+            <div *ngIf="Mode.errors.required">
+                Mode is required</div>
+        </div>
+    </div>
+   <!--From Date-->
+   <div class="form-group">
+
+    <label>Travel From Date</label>
+    <input type="date" name="FromDate" id="FromDate" #FromDateg="ngModel"
+        [ngModel]="requestService.formData.FromDate" class="form-control" required
+        [ngClass]="{'is-invalid':FromDate.touched && FromDate.invalid}" />
+    <div class="validation-error" *ngIf="FromDate.touched && FromDate.invalid">
+
+        <div *ngIf="FromDate.errors.required">
+            Date is required</div>
+    </div>
+</div>
+
+ <!--To Date-->
+ <div class="form-group">
+
+    <label>Travel till </label>
+    <input type="date" name=" ToDate" id=" ToDate" # ToDate="ngModel"
+        [ngModel]="requestService.formData.ToDate" class="form-control" required
+        [ngClass]="{'is-invalid': ToDate.touched &&  ToDate.invalid}" />
+    <div class="validation-error" *ngIf=" ToDate.touched &&  ToDate.invalid">
+
+        <div *ngIf=" ToDate.errors.required">
+            Date is required</div>
+    </div>
+</div>
+    <!--No of days-->
+    <div class="form-group">
+
+        <label>Number of days</label>
+        <input type="number" name="NoOfDays" id="NoOfDays" #NoOfDays="ngModel"
+            [ngModel]="requestService.formData.NoOfDays" class="form-control" required
+            [ngClass]="{'is-invalid':NoOfDays.touched && NoOfDays.invalid}" />
+        <div class="validation-error" *ngIf="NoOfDays.touched && NoOfDays.invalid">
+
+            <div *ngIf="NoOfDays.errors.required">
+                NoOfDays is required</div>
+        </div>
+    </div>
+     <!--ProjectID-->
+     <div class="form-group">
+
+        <label>ProjectId</label>
+        <input type="number" name=" ProjectId" id=" ProjectId" # ProjectId="ngModel"
+            [ngModel]="requestService.formData.ProjectId" class="form-control" required
+            [ngClass]="{'is-invalid': ProjectId.touched &&  ProjectId.invalid}" />
+        <div class="validation-error" *ngIf=" ProjectId.touched &&  ProjectId.invalid">
+
+            <div *ngIf=" ProjectId.errors.required">
+                 ProjectId is required</div>
+        </div>
+    </div>
+
+    <!--Employee id-->
+
+    <div class="form-group">
+
+        <label>Employee id</label>
+        <input type="number" name="EmpId" id="EmpId" #EmpId="ngModel"
+            [ngModel]="requestService.formData.EmpId" class="form-control" required
+            [ngClass]="{'is-invalid':EmpId.touched && EmpId.invalid}" />
+        <div class="validation-error" *ngIf="EmpId.touched && EmpId.invalid">
+
+            <div *ngIf="EmpId.errors.required">
+                EmployeeId is required</div>
+        </div>
+    </div>
+    <!--Priority-->
+    <div class="form-group">
+
+        <label class="col-md-4">Priority</label>
+        
+        <select name="Priority" id="Priority" class="form-control" #Priority="ngModel" required
+            [(ngModel)]="requestService.formData.Priority"
+            [ngClass]="{'is-invalid':Priority.touched && Priority.invalid}"
+            >
+            <option value=0 disabled>Choose Priority</option>
+            <option  value="critical">critical</option>
+            <option  value="normal">normal</option>
+            
+
+        </select>
+        <div class="validation-error" *ngIf="Priority.touched && Priority.invalid">
+
+            <div *ngIf="Priority.errors.required">
+                Priority is required</div>
+        </div>
+    </div>
+    <!--submit button-->
+    <br>
+    <div class="form-group">
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-primary form-control">Submit</button>
+    </div>
+
+
+
+
+</form>
+

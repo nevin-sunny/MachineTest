@@ -1,0 +1,21 @@
+<header>
+    <div class="container">
+        <h5>Welcome : {{loggedUserName}}</h5>
+
+    </div>
+    <nav>
+        <ul class="nav">
+            <li class="nav-item">
+            <a  [routerLink]="['employee']" class="btn btn-primary" style="float: right;margin-bottom:10px;" >Register New Employee</a>
+            </li>
+            &nbsp;
+            <li class="nav-item">
+                <a  [routerLink]="['employeelist']" class="btn btn-primary" style="float: right;margin-bottom:10px;" >Employee List</a>
+                </li>
+            &nbsp;
+            <li class="nav-item"><a class="nav-link" href="#"
+               (click)="logout()" >Logout
+            </a></li>
+        </ul>
+    </nav>
+</header>
